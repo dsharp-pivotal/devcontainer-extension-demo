@@ -1,0 +1,15 @@
+{
+    "image": "${localEnv:ECR_REGISTRY}/sailplane-coder:latest",
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+	],
+	"workspaceFolder": "/workspace",
+
+	"customizations": {
+		"vscode": {
+			"extensions": [
+                "${containerEnv:SAILPLANE_EXTENSION}"
+			],
+		}
+	}
+}
