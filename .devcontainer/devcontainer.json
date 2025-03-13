@@ -1,5 +1,10 @@
 {
-    "image": "${localEnv:ECR_REGISTRY}/sailplane-coder:latest",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "args": {
+            "SAILPLANE_BASE_IMAGE": "${localEnv:ECR_REGISTRY}/sailplane-coder:latest",
+        }
+    },
 	"mounts": [
 		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 	],
@@ -9,7 +14,7 @@
 		"vscode": {
 			"extensions": [
                 "${containerEnv:SAILPLANE_EXTENSION}"
-			],
+			]
 		}
 	}
 }
