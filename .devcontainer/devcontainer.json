@@ -5,6 +5,7 @@
             "SAILPLANE_BASE_IMAGE": "${localEnv:ECR_REGISTRY}/sailplane-coder:latest",
         }
     },
+    "containerUser": "root",  // required because envbuilder's UserFromDockerfile() function can't parse the FROM directive with an ${ARG} in it. Setting containerUser directly bypasses calling this function.
 	"mounts": [
 		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
 	],
